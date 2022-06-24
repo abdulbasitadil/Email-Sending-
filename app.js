@@ -39,11 +39,17 @@ async function sendMail(user, callback) {
     },
   });
 
+
+
   let mailOptions = {
     from: user.email, // sender address
-    to: 'info@goolrant.com', // list of receivers
+    to: `${user.receiver ? user.email : 'info@goolrant.com'}`, // list of receivers
     subject: user.subject, // Subject line
-    html: `<div>
+    html: `${user.receiver ? `<div>
+    <h3>Thanks for reaching out GoolRant.Someone will be with you shortly.</h3>
+    <p style="margin: 0;margin-top: 50px;">Thanks</p>
+    <span>GoolRant Team</span>
+ </div>` : `<div>
     <h3>Thanks for reaching out GoolRant.Someone will be with you shortly.</h3>
     <table class="table">
        <tbody>
@@ -81,9 +87,9 @@ async function sendMail(user, callback) {
           </tr>
        </tbody>
     </table>
-    <p style="margin:10px;padding:0;">Thanks</p>
-    <p style="margin:10px;padding:0;">GoolRant Team</p>
- </div>`,
+    <p style="margin: 0;margin-top: 50px;">Thanks</p>
+    <p>GoolRant Team</p>
+ </div>`}`,
   };
 
   // send mail with defined transport object
