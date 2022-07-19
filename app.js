@@ -59,7 +59,7 @@ async function sendMail(user, callback) {
                 padding: 8px;">Customer Name</th>
              <td style="border: 1px solid #dddddd;
                 text-align: left;
-                padding: 8px;">${user.firstName} ${user.lastName}</td>
+                padding: 8px;">${user.name}</td>
           </tr>
           <tr>
              <th style="border: 1px solid #dddddd;
